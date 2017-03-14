@@ -14,7 +14,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Ci-Blog</a>
+                    <a class="navbar-brand" href="<?= base_url(); ?>">Ci-Blog</a>
                 </div>
 
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -22,24 +22,33 @@
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
                         <li><a href="#">Blog</a></li>
-                       <li><a href="#">Contact</a></li>
-                       
+                        <li><a href="#">Contact</a></li>
+
                     </ul>
-                    
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#">Link</a></li>
-                        <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">User <span class="caret"></span></a>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">Profile</a></li>
-                                <li><a href="#">Logout</a></li>
-                                
-                            </ul>
-                        </li>
-                    </ul>
+                    <?php if ($this->ion_auth->logged_in()): ?>
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="<?= ''
+                        . base_url() . 'news/add' ?>">Nouvel article</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+
+                                    <?php
+                                    $user = $this->ion_auth->user()->row();
+                                    echo $user->email;
+                                    ?>
+
+                                    <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#">Profile</a></li>
+                                    <li><a href="<?= base_url() . 'user/logout' ?>">Logout</a></li>
+
+                                </ul>
+
+                            </li>
+                        </ul>
+                    <?php endif ?>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
         <div class="container">
 
-            
