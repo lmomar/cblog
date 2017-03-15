@@ -1,3 +1,4 @@
+
 <div class="row">
     <h2><?= $title; ?></h2>
     <?php if ($this->session->has_userdata('message')): ?>
@@ -7,10 +8,15 @@
         <?php foreach ($articles as $a): ?>
             <div class="row">
                 <h3><?= $a['title']; ?></h3>
+                <p class="blog-post-meta">
+                    <label class="label label-default"><?= $a['created_at']; ?></label>
+                    <a class="" href="#"><?= $a['titre']; ?></a>
+                </p>
+                <hr>
                 <div class="text-capitalize">
                     <?= $a['text']; ?>
                 </div>
-                <a href="articles/<?= $a['slug']; ?>">Lire</a>
+                <a href="articles/<?= $a['slug']; ?>" class="btn btn-info">Lire</a>
             </div>
         <?php endforeach; ?>
     <?php endif ?>

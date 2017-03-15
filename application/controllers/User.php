@@ -27,11 +27,12 @@ class User extends CI_Controller {
             $email = $this->input->post('email');
             $password = $this->input->post('password');
             $adresse = $this->input->post('adresse');
-            $this->ion_auth->register($adresse, $username, $password, $email);
+            $additional_data = array(
+		'adresse' => $adresse
+	);
+            $this->ion_auth->register($username, $password, $email,$additional_data);
             $this->session->set_flashdata('message', 'Compte enregistré');
-            $this->load->view('templates/header', $data);
-            $this->load->view('user/register', $data);
-            $this->load->view('templates/footer');
+            redirect('user/login');
         }
     }
 
