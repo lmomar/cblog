@@ -11,7 +11,6 @@ class Category extends CI_Controller {
     
     public function add() {
         $this->form_validation->set_rules('titre','Titre','required');
-        $this->form_validation->set_rules('category','Category','required');
         if($this->form_validation->run()=== FALSE)
         {
             $data['title'] = 'Nouvelle categorie';

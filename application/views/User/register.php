@@ -3,9 +3,9 @@
     echo $this->session->flashdata['message'];
     ?>
 </h2>
-<div class="alert alert-danger">
-    <?= validation_errors(); ?>
-</div>
+
+    <?= validation_errors('<div class="alert alert-danger">','</div>'); ?>
+
 <div class="row">
     <div class="col-lg-6 col-md-6 col-sm-6">
         <section class="panel panel-info">

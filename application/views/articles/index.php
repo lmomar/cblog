@@ -1,4 +1,3 @@
-
 <div class="row">
     <h2><?= $title; ?></h2>
     <?php if ($this->session->has_userdata('message')): ?>
@@ -7,7 +6,7 @@
     <?php if (!empty($articles) && is_array($articles)): ?>
         <?php foreach ($articles as $a): ?>
             <div class="row">
-                <h3><?= $a['title']; ?></h3>
+                <h3><a href="articles/<?= $a['slug']; ?>"><?= $a['title']; ?></a></h3>
                 <p class="blog-post-meta">
                     <label class="label label-default"><?= $a['created_at']; ?></label>
                     <a class="" href="#"><?= $a['titre']; ?></a>

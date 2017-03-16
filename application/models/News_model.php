@@ -10,11 +10,12 @@ class News_model extends CI_Model {
 
 
         if ($slug === FALSE) {
-            $this->db->select('*');
+            $this->db->select('news.id,news.title,news.text,news.created_at,news.slug,categories.id,categories.titre');
             $this->db->from('news');
             $this->db->join('categories', 'news.category_id = categories.id');
             $query = $this->db->get();
             $articles = $query->result_array();
+            //echo '<pre>';var_dump($articles);die();
             return $articles;
         }
         $this->db->select('*');

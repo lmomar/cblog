@@ -21,14 +21,14 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Accueil <span class="sr-only">(current)</span></a></li>
-                        <li><a href="#">Blog</a></li>
                         <li><a href="#">Contact</a></li>
 
                     </ul>
-                    <?php if ($this->ion_auth->logged_in()): ?>
-                        <ul class="nav navbar-nav navbar-right">
-                            <li><a href="<?= ''
-                        . base_url() . 'news/add' ?>">Nouvel article</a></li>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <?php if ($this->ion_auth->logged_in()): ?>
+                            <li><a href="<?= base_url(). 'news/add' ?>">Nouvel article</a></li>
+                            <li><a href="<?= base_url(). 'category/add' ?>">Nouvelle catégorie</a></li>
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 
@@ -45,8 +45,12 @@
                                 </ul>
 
                             </li>
+<?php else: ?>
+                            <li><a href="<?= base_url(); ?>user/login">Connexion</a></li>
+                            <li><a href="<?= base_url(); ?>user/register">S'enregistrer</a></li>
                         </ul>
-                    <?php endif ?>
+
+<?php endif ?>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->
         </nav>
